@@ -1,0 +1,14 @@
+#Greenfoot properties
+#Tue Apr 21 16:06:46 PDT 2015
+class.Hiscores.superclass=Screen
+class.Tutorial.superclass=Screen
+class.Menu.superclass=Screen
+class.Backstory.superclass=Screen
+class.Screen.superclass=greenfoot.World
+class.GameWorld.superclass=greenfoot.World
+class.Credits.superclass=Screen
+project.charset=UTF-8
+version=2.7.0
+class.Game.superclass=GameWorld
+class.PlaySettings.superclass=Screen
+class.GameOver.superclass=Screen
