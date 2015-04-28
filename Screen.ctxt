@@ -2,4 +2,8 @@
 comment0.params=
 comment0.target=Screen()
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Screen.\r\n\ \r\n
-numComments=1
+comment1.params=
+comment1.target=void\ act()
+comment2.params=mouse
+comment2.target=void\ checkClick(greenfoot.MouseInfo)
+numComments=3

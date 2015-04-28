@@ -15,5 +15,9 @@ public class Game extends GameWorld
      */
     public Game(int difficulty)
     {
+        super.act();
+        addObject(new Banana(), 300, 300);
+        
+        
     }
 }

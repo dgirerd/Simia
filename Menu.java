@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.Color;
 
 /**
  * Write a description of class Menu here.
@@ -17,6 +18,8 @@ public class Menu extends Screen
     {
         super();
         setBackground("images/MenuScreen.png"); 
+        
+        
     }
     
     void checkClick(MouseInfo mouse) { 

@@ -9,7 +9,7 @@ import greenfoot.*;
 public class Hiscores extends Screen
 {
     int screen = 1;
-    private static final int NUM_SCREENS = 8;
+    private  int numScreens = 8;
     /**
      * Constructor for objects of class Hiscores.
      * 
@@ -26,7 +26,7 @@ public class Hiscores extends Screen
                 Greenfoot.setWorld(new Menu());
             }
             else if (mouse.getX() >= 400 && mouse.getX() <= 530) {
-                if (screen < NUM_SCREENS) {
+                if (screen < numScreens) {
                     setBackground("images/Hiscores" + (++screen) + ".png");
                 }
             }

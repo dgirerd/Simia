@@ -17,7 +17,7 @@ public class PlaySettings extends Screen
     {
         super();
         setBackground("images/PlaySettings.png");
-        music = new GreenfootSound("greatmusic.wav");//to be stolen
+        //music = new GreenfootSound("greatmusic.wav");//to be stolen
     }
     
     void checkClick(MouseInfo mouse){ 
