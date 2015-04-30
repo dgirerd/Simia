@@ -1,18 +1,8 @@
 import greenfoot.*;
 
-/**
- * Write a description of class PlaySettings here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class PlaySettings extends Screen
 {
 
-    /**
-     * Constructor for objects of class PlaySettings.
-     * 
-     */
     public PlaySettings()
     {
         super();
@@ -35,7 +25,7 @@ public class PlaySettings extends Screen
             }
             else if (mouse.getX() >= 350 && mouse.getX() <= 580 && mouse.getY() >= 500 && mouse.getY() <= 580) {
                 //music.playLoop();
-                Greenfoot.setWorld(new Menu()); //hard
+                Greenfoot.setWorld(new Menu());
             }
     }
 }

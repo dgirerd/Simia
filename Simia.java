@@ -11,7 +11,7 @@ public class Simia extends Actor
     double xPos = 300.0D;
     double yPos = 300.0D;
     private static int ms = 5;
-    
+
     /**
      * Act - do whatever the Simia wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

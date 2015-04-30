@@ -1,19 +1,10 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Tutorial here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Tutorial extends Screen
 {
     int screen = 1;
     private static final int NUM_SCREENS = 2; 
-    /**
-     * Constructor for objects of class Tutorial.
-     * 
-     */
+
     public Tutorial()
     {
         super();

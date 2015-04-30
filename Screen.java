@@ -1,23 +1,14 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Screen here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public abstract class Screen extends World
 {
     public static GreenfootSound music;
+    public static int width = 600;
+    public static int height = 600;
 
-    /**
-     * Constructor for objects of class Screen.
-     * 
-     */
     public Screen()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 600, 1);
+        super(width, height, 1);
     }
     
     public void act() {

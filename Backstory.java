@@ -1,19 +1,10 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Backstory here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Backstory extends Screen
 {
     int screen = 1;
     private static final int NUM_SCREENS = 2; //to be changed
-    /**
-     * Constructor for objects of class Backstory.
-     * 
-     */
+
     public Backstory()
     {
         super();
