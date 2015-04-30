@@ -32,7 +32,7 @@ public class Game extends GameWorld
         // construct something
     }
     
-    public static void main(String[] args) {
+    public void gameLoop(String[] args) {
         // Create all necessary variables for Game Loop
         
         while (!gameOver) {
