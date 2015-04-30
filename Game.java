@@ -16,7 +16,7 @@ public class Game extends GameWorld
     private Banana[] bananas; // Array of the Bananas on the map at that current time
     private Projectile[] projectiles; // Array of the Projectiles on the map at that current time
     private Simia simia; // Simia!
-    private boolean gameOver; // True if game ends by death or user quit
+    private static boolean gameOver; // True if game ends by death or user quit
     // Create more private variables as necessary
     
     /**
@@ -25,12 +25,10 @@ public class Game extends GameWorld
      */
     public Game(int difficulty)
     {
-<<<<<<< HEAD
         super.act();
-        addObject(new Banana(), 300, 300);
+        addObject(new Banana(), 100, 100);
+        addObject(new Simia(), 300, 300);
         
-        
-=======
         // construct something
     }
     
@@ -48,6 +46,5 @@ public class Game extends GameWorld
         
         // When the game is over:
         //  greenfoot.setWorld(new GameOver(boolean win, int score))
->>>>>>> origin/master
     }
 }

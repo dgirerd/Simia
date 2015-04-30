@@ -17,28 +17,26 @@ public class Menu extends Screen
     public Menu()
     {
         super();
-        setBackground("images/MenuScreen.png"); 
+        setBackground("images/Menu.png"); 
         
         
     }
     
     void checkClick(MouseInfo mouse) { 
-        if (mouse.getX() >= 200 && mouse.getX() <= 350) {
-            if (mouse.getY() >= 150 && mouse.getY() <= 185) {
+            if (mouse.getX() >= 235 && mouse.getX() <= 365 && mouse.getY() >= 188 && mouse.getY() <= 228) {
                 Greenfoot.setWorld(new Backstory());
             }
-            else if (mouse.getY() >= 225 && mouse.getY() <= 255) {
+            else if (mouse.getX() >= 235 && mouse.getX() <= 365 && mouse.getY() >= 245 && mouse.getY() <= 285) {
                 Greenfoot.setWorld(new Tutorial());
             }
-            else if (mouse.getY() >= 290 && mouse.getY() <= 330) {
+            else if (mouse.getX() >= 207 && mouse.getX() <= 392 && mouse.getY() >= 301 && mouse.getY() <= 362) {
                 Greenfoot.setWorld(new PlaySettings());
             }
-            else if (mouse.getY() >= 365 && mouse.getY() <= 400) {
+            else if (mouse.getX() >= 207 && mouse.getX() <= 392 && mouse.getY() >= 381 && mouse.getY() <= 440) {
                 Greenfoot.setWorld(new Hiscores());
             }
-            else if (mouse.getY() >= 440 && mouse.getY() <= 465) {
+            else if (mouse.getX() >= 235 && mouse.getX() <= 365 && mouse.getY() >= 458 && mouse.getY() <= 498) {
                 Greenfoot.setWorld(new Credits());
             }
-        }
     }
 }
