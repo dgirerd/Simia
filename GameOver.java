@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import javax.swing.*;
 /**
  * Write a description of class GameOver here.
  * 
@@ -13,19 +13,30 @@ public class GameOver extends Screen
      * Constructor for objects of class GameOver.
      * 
      */
-    public GameOver(boolean win, int score)
+    public GameOver(int score)
     {
         super();
         music.stop();
-        if (win) {
-            setBackground("images/winScreen.png");
-            music = new GreenfootSound("winner.wav");//to be stolen
-            music.play();
+        setBackground("images/endScreen.png");
+        music = new GreenfootSound("end.wav");//to be stolen
+        music.play();
+        FileInputStream file = new FileInputStream(new File("scores.txt"));
+        Scanner line = new Scanner("scores.txt")
+        Scanner parse;
+        int temp;
+        int num = -1;
+        while(line.hasNext()){
+            parse = new Scanner(line.next);
+            temp = parse.nextInt();
+            if(num == -1 || temp < num)
+                num = temp;
         }
-        else {
-            setBackground("images/loseScreen.png");
-            music = new GreenfootSound("loser.wav");//to be stolen
-            music.play();
+        if(temp < score){
+            String name = JOptionPane.showInputDialog("Enter your name:")
+            greenfoot.setWorld(new Hiscores(name, score)); 
+        }
+        else{
+            greenfoot.setWorld(new Menu());
         }
     }
     
