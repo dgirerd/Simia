@@ -16,12 +16,12 @@ public class GameOver extends Screen
     public GameOver(int score)
     {
         super();
-        music.stop();
+        //music.stop();
         setBackground("images/endScreen.png");
-        music = new GreenfootSound("end.wav");//to be stolen
-        music.play();
-        FileInputStream file = new FileInputStream(new File("scores.txt"));
-        Scanner line = new Scanner("scores.txt")
+        //music = new GreenfootSound("end.wav");//to be stolen
+        //music.play();
+        /*FileInputStream file = new FileInputStream(new File("scores.txt"));
+        Scanner line = new Scanner("scores.txt");
         Scanner parse;
         int temp;
         int num = -1;
@@ -32,12 +32,12 @@ public class GameOver extends Screen
                 num = temp;
         }
         if(temp < score){
-            String name = JOptionPane.showInputDialog("Enter your name:")
+            String name = JOptionPane.showInputDialog("Enter your name:");
             greenfoot.setWorld(new Hiscores(name, score)); 
         }
         else{
             greenfoot.setWorld(new Menu());
-        }
+        }*/
     }
     
     void checkClick(MouseInfo mouse) {

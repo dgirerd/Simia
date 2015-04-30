@@ -9,7 +9,6 @@ import greenfoot.*;
 public class GameWorld extends World
 {
     private int gameTime = 0;
-    private static boolean gameOver = false;
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -18,7 +17,6 @@ public class GameWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
-        gameOver = false;
     }
     
     public int getGameTime() {
@@ -29,13 +27,4 @@ public class GameWorld extends World
         gameTime++;
     }
     
-    public static void playerWin(int score) {
-        gameOver = true;
-        Greenfoot.setWorld(new GameOver(true, score));
-    }
-    
-    public static void playerLoss(int score) {
-        gameOver = true;
-        Greenfoot.setWorld(new GameOver(false, score));
-    }
 }

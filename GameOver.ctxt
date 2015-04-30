@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=win\ score
-comment0.target=GameOver(boolean,\ int)
+comment0.params=score
+comment0.target=GameOver(int)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ GameOver.\r\n\ \r\n
 comment1.params=mouse
 comment1.target=void\ checkClick(greenfoot.MouseInfo)
