@@ -53,17 +53,13 @@ public class GameOver extends Screen
             for(String s : stats){
                 fileWrite.write(s);
             }
-            Greenfoot.setWorld(new Hiscores());
-        }
-        else{
-            Greenfoot.setWorld(new Menu());
         }
     }
     
     void checkClick(MouseInfo mouse) {
         if (mouse.getX() >= 340 && mouse.getX() <= 560) {
             if (mouse.getY() >= 550 && mouse.getY() <= 585) {
-                Greenfoot.setWorld(new Hiscores());
+                Greenfoot.setWorld(new Hiscores()); //add option to return to menu, try again
             }
         }
     }

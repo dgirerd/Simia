@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.*;
 
 /**
  * Write a description of class Simia here.
@@ -54,16 +55,18 @@ public class Simia extends Actor
     	List<Actor> arr = new ArrayList<Actor>();
     	List<Projectile> projectiles = new ArrayList<Projectile>();
     	List<Banana> bananas = new ArrayList<Banana>();
+    	Banana b = new Banana();
+    	//Game g = new Game();
     	
     	arr = getIntersectingObjects(null);
     	for (Actor a : arr) {
-    		if (Banana.getClass().equals(a.getClass()))
-    			bananas.add(a);
+    		if (b.getClass().equals(a.getClass()))
+    			bananas.add((Banana)a);
     		else
-    			projectiles.add(a);
+    			projectiles.add((Projectile)a);
     	}
     	
-    	collectedBanana(bananas);
-    	hitByProjectile(projectiles);
+    	//g.collectedBanana(bananas);
+    	//g.hitByProjectile(projectiles);
     }
 }
