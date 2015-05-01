@@ -15,7 +15,7 @@ public class GameOver extends Screen
      * Constructor for objects of class GameOver.
      * 
      */
-    public GameOver(int score) throws IOException
+    public GameOver(int score)
     {
         super();
         ArrayList<String> stats = new ArrayList<String>();
@@ -27,32 +27,31 @@ public class GameOver extends Screen
         //music.play();
         try{
             file = new FileInputStream(new File("scores.txt"));
-        }
-        catch(FileNotFoundException e){
+       
             File scores = new File("scores.txt");
             scores.createNewFile();
+        
             file = new FileInputStream(new File("scores.txt"));
-        }
-        Scanner lines = new Scanner("scores.txt");
-        while(lines.hasNext()){
-            stats.add(lines.next());
-        }
-        file.close();
-        FileWriter fileWrite = new FileWriter(new File("scores.txt"), false);
-        Collections.sort(stats);
-        try{
+            Scanner lines = new Scanner("scores.txt");
+            while(lines.hasNext()){
+                stats.add(lines.next());
+            }
+            file.close();
+            FileWriter fileWrite = new FileWriter(new File("scores.txt"), false);
+            Collections.sort(stats);
             lines = new Scanner(stats.get(0));
             least = lines.nextInt();
+        
+            if(stats.size() < 50 ||  score < least){
+                String name = JOptionPane.showInputDialog("Enter your name:");
+                stats.add(String.format("%09", score) + " " + name);
+                stats.remove(0);
+                for(String s : stats){
+                    fileWrite.write(s);
+                }
+            }
         }catch(Exception e){
             least = score + 1;
-        }
-        if(stats.size() < 50 ||  score < least){
-            String name = JOptionPane.showInputDialog("Enter your name:");
-            stats.add(String.format("%09", score) + " " + name);
-            stats.remove(0);
-            for(String s : stats){
-                fileWrite.write(s);
-            }
         }
     }
     
