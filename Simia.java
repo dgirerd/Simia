@@ -46,6 +46,24 @@ public class Simia extends Actor
                 this.yPos += ms;
             }
         }
+        checkCollisions();
         setLocation((int)this.xPos, (int)this.yPos);
-    }    
+    }
+    
+    public void checkCollisions() {
+    	ArrayList<Actor> arr = new ArrayList<Actor>();
+    	ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+    	ArrayList<Banana> bananas = new ArrayList<Banana>();
+    	
+    	arr = getIntersectingObjects(null);
+    	for (Actor a : arr) {
+    		if (Banana.getClass().equals(a.getClass()))
+    			bananas.add(a);
+    		else
+    			projectiles.add(a);
+    	}
+    	
+    	collectedBanana(bananas);
+    	hitByProjectile(projectiles);
+    }
 }
