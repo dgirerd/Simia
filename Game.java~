@@ -86,7 +86,6 @@ public class Game extends GameWorld
          if (projectiles.size() < MAX_PROJ && elapsedTimeRound / 1000.0 > PROJ_SEC) {
             projectile = new Projectile();
             
-            // this is sort of lame and janky
             if (projectiles.size() % 4 == 0) {
                addObject(projectile, random.nextInt(600), 0);
             }
