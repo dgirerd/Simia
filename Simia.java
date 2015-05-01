@@ -51,9 +51,9 @@ public class Simia extends Actor
     }
     
     public void checkCollisions() {
-    	ArrayList<Actor> arr = new ArrayList<Actor>();
-    	ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
-    	ArrayList<Banana> bananas = new ArrayList<Banana>();
+    	List<Actor> arr = new ArrayList<Actor>();
+    	List<Projectile> projectiles = new ArrayList<Projectile>();
+    	List<Banana> bananas = new ArrayList<Banana>();
     	
     	arr = getIntersectingObjects(null);
     	for (Actor a : arr) {
