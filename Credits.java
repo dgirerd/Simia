@@ -7,6 +7,7 @@ public class Credits extends Screen
     {
         super();
         setBackground("images/CreditsScreen.png");
+        addObject(new ScoreDisplay(), 500, 100);
     }
     
     void checkClick(MouseInfo mouse) { //pixel numbers to change
