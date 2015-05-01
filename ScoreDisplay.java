@@ -9,6 +9,7 @@ public class ScoreDisplay extends Actor
     public void act() 
     {
         if (score != prevScore) {
+            setImage(new GreenfootImage(Integer.toString(score), 25, Color.black, Color.green));    
             prevScore = prevScore;
         }
         
