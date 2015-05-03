@@ -18,11 +18,9 @@ public class Simia extends Actor
                 getImage().mirrorHorizontally();
                 faceRight = true;
             }
-            //turnTowards(Game.areaXmax, this.yPos);
         }
         if (Greenfoot.isKeyDown("left") && this.xPos - ms - halfWidth >= Game.areaXmin) {
             this.xPos -= ms;
-            //turnTowards(Game.areaXmin, this.yPos - 1);
             if(faceRight) {
                 getImage().mirrorHorizontally();
                 faceRight = false;

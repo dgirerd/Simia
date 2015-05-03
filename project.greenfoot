@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sun May 03 13:54:10 PDT 2015
+#Sun May 03 14:17:15 PDT 2015
 target12.editor.height=1040
 target10.editor.width=900
 class.Simia.superclass=greenfoot.Actor
@@ -174,6 +174,7 @@ target10.width=80
 target3.y=190
 target11.width=80
 target3.x=200
+class.Life.image=Heart.png
 dependency12.from=GameWorld
 dependency7.to=Backstory
 target3.height=50
@@ -184,7 +185,7 @@ target4.naviview.expanded=true
 class.PlaySettings.superclass=Screen
 target14.editor.y=0
 target12.type=ClassTarget
-class.Projectile.image=rock.png
+class.Projectile.image=Rock.png
 target14.editor.x=960
 class.ScoreDisplay.superclass=greenfoot.Actor
 target5.typeParameters=
@@ -236,8 +237,9 @@ target7.height=50
 dependency5.type=UsesDependency
 dependency20.to=Projectile
 target8.type=ClassTarget
-class.Banana.image=bananas.png
+class.Banana.image=Banana.png
 dependency18.to=ScoreDisplay
+class.Life.superclass=greenfoot.Actor
 dependency13.from=Game
 dependency9.type=UsesDependency
 target3.editor.height=1038
