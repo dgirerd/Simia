@@ -6,15 +6,13 @@ public class Credits extends Screen
     public Credits()
     {
         super();
-        setBackground("images/CreditsScreen.png");
+        setBackground("images/Credits.png");
         addObject(new ScoreDisplay(), 500, 100);
     }
     
     void checkClick(MouseInfo mouse) { //pixel numbers to change
-        if (mouse.getX() >= 340 && mouse.getX() <= 535) {
-            if (mouse.getY() >= 530 && mouse.getY() <= 555) {
+        if (mouse.getX() >= 380 && mouse.getX() <= 565 && mouse.getY() >= 513 && mouse.getY() <= 572) {
                 Greenfoot.setWorld(new Menu());
-            }
         }
     }
 }
