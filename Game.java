@@ -9,6 +9,11 @@ import java.util.*;
  */
 public class Game extends GameWorld
 {
+    public static int areaXmin = 50;
+    public static int areaXmax = 550;
+    public static int areaYmin = 50;
+    public static int areaYmax = 550;
+    
     private static final int SIDE_BUF = 50; // Buffer around side of screen where nothing will be 
     private static final int MAX_PROJ = 8; // Maximum number of projectiles
     private static final int MAX_BANANA = 3; // Maximum number of bananas
@@ -38,6 +43,8 @@ public class Game extends GameWorld
     public Game(int difficulty)
     {
         super.act();
+        setBackground("images/JungleBackground.png");
+        
         
         score = 0;
         bananasCollected = 0;

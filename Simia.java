@@ -19,33 +19,19 @@ public class Simia extends Actor
      */
     public void act() 
     {
-        if (Greenfoot.isKeyDown("right") && this.xPos + ms < 600) {
+        int halfWidth = getImage().getWidth()/2;
+        int halfHeight = getImage().getHeight()/2;
+        if (Greenfoot.isKeyDown("right") && this.xPos + ms + halfWidth <= Game.areaXmax) {
             this.xPos += ms;
-            setLocation((int)this.xPos, (int)this.yPos);
-            if (!getIntersectingObjects(null).isEmpty()) {
-                this.xPos -= ms;
-            }
         }
-        if (Greenfoot.isKeyDown("left") && this.xPos - ms >= 0) {
+        if (Greenfoot.isKeyDown("left") && this.xPos - ms - halfWidth >= Game.areaXmin) {
             this.xPos -= ms;
-            setLocation((int)this.xPos, (int)this.yPos);
-            if (!getIntersectingObjects(null).isEmpty()) {
-                this.xPos += ms;
-            }
         }
-        if (Greenfoot.isKeyDown("down") && this.yPos + ms < 600) {
+        if (Greenfoot.isKeyDown("down") && this.yPos + ms + halfHeight <= Game.areaYmax) {
             this.yPos += ms;
-            setLocation((int)this.xPos, (int)this.yPos);
-            if (!getIntersectingObjects(null).isEmpty()) {
-                this.yPos -= ms;
-            }
         }
-        if (Greenfoot.isKeyDown("up") && this.yPos - ms >= 0) {
+        if (Greenfoot.isKeyDown("up") && this.yPos - ms - halfHeight >= Game.areaYmin) {
             this.yPos -= ms;
-            setLocation((int)this.xPos, (int)this.yPos);
-            if (!getIntersectingObjects(null).isEmpty()) {
-                this.yPos += ms;
-            }
         }
         checkCollisions();
         setLocation((int)this.xPos, (int)this.yPos);
