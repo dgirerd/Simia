@@ -1,12 +1,6 @@
 import greenfoot.*;
 import java.util.*;
 
-/**
- * Write a description of class Game here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Game extends GameWorld
 {
     public static int areaXmin = 50;
@@ -34,12 +28,7 @@ public class Game extends GameWorld
     private long lastTime;
     private long startTime;
     private int difficulty;
-    // Create more private variables as necessary
-    
-    /**
-     * Constructor for objects of class Game.
-     * 
-     */
+
     public Game(int difficulty)
     {
         super.act();
