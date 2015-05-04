@@ -11,22 +11,23 @@ public class PlaySettings extends Screen
     }
     
     void checkClick(MouseInfo mouse){ 
-            if (mouse.getX() >= 250 && mouse.getX() <= 340 && mouse.getY() >= 175 && mouse.getY() <= 220) {
+        if(mouse.getX() >= 205 && mouse.getX() <= 395) {
+            if (mouse.getY() >= 215 && mouse.getY() <= 275) {
                 //music.playLoop();
                 Greenfoot.setWorld(new Game(1)); //easy
             }
-            else if (mouse.getX() >= 205 && mouse.getX() <= 370 && mouse.getY() >= 285 && mouse.getY() <= 330) {
+            else if (mouse.getY() >= 295 && mouse.getY() <= 355) {
                 //music.playLoop();
                 Greenfoot.setWorld(new Game(2)); //medium
             }
-            else if (mouse.getX() >= 245 && mouse.getX() <= 335 && mouse.getY() >= 400 && mouse.getY() <= 445) {
+            else if (mouse.getY() >= 370 && mouse.getY() <= 430) {
                 //music.playLoop();
                 Greenfoot.setWorld(new Game(3)); //hard
             }
-            else if (mouse.getX() >= 350 && mouse.getX() <= 580 && mouse.getY() >= 500 && mouse.getY() <= 580) {
-                //music.playLoop();
+        }
+            if (mouse.getX() >= 380 && mouse.getX() <= 565 && mouse.getY() >= 513 && mouse.getY() <= 572) {
                 Greenfoot.setWorld(new Menu());
-            }
+        }
     }
 }
 
