@@ -5,6 +5,9 @@ public class Projectile extends Actor
 
     public void act() 
     {
-        // Add your action code here.
+    	int halfWidth = getImage().getWidth()/2;
+        int halfHeight = getImage().getHeight()/2;
+        
+        move(5);
     }    
 }

@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sun May 03 22:27:10 PDT 2015
+#Mon May 04 14:43:16 PDT 2015
 target2.name=GameOver
 target9.name=Projectile
 class.PlaySettings.superclass=Screen
@@ -38,8 +38,8 @@ dependency15.to=Menu
 target15.name=ScoreDisplay
 target5.height=50
 target1.name=Tutorial
-version=2.7.0
 target11.naviview.expanded=false
+version=2.7.1
 target8.name=Banana
 dependency10.type=UsesDependency
 class.Credits.superclass=Screen
@@ -78,8 +78,8 @@ target5.editor.height=1040
 class.Projectile.superclass=greenfoot.Actor
 target14.name=PlaySettings
 class.Banana.image=Banana.png
-target9.height=50
 target2.naviview.expanded=false
+target9.height=50
 target11.showInterface=false
 target2.showInterface=false
 target7.name=Backstory
@@ -120,8 +120,8 @@ dependency6.type=UsesDependency
 target13.editor.width=960
 dependency4.to=Menu
 target7.editor.y=0
-target9.typeParameters=
 target7.editor.x=0
+target9.typeParameters=
 class.Menu.superclass=Screen
 target7.width=80
 target11.editor.height=1056
@@ -284,9 +284,9 @@ target12.width=80
 dependency2.type=UsesDependency
 target4.y=10
 target4.x=70
+target8.editor.y=20
 dependency9.type=UsesDependency
 dependency6.from=Backstory
-target8.editor.y=20
 target12.height=50
 target8.editor.x=40
 target14.editor.height=838
