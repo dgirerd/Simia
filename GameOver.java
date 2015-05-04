@@ -22,26 +22,32 @@ public class GameOver extends Screen
         //music.stop();
         setBackground("images/endScreen.png");
         FileInputStream file;
+        FileWriter fileWrite;
         int least;
         //music = new GreenfootSound("end.wav");//to be stolen
         //music.play();
         try{
             file = new FileInputStream(new File("scores.txt"));
-       
-            File scores = new File("scores.txt");
-            scores.createNewFile();
-        
-            file = new FileInputStream(new File("scores.txt"));
-            Scanner lines = new Scanner("scores.txt");
-            while(lines.hasNext()){
-                stats.add(lines.next());
+        }catch(FileNotFoundException e){
+            File scores = new File("scores.txt");//only needs to create file if file doesn't exist
+            try{
+                scores.createNewFile();
+                file = new FileInputStream(new File("scores.txt"));
+            }catch(Exception x){
+                return;
             }
+        }
+        Scanner lines = new Scanner("scores.txt");
+        while(lines.hasNext()){
+            stats.add(lines.next());
+        }
+        try{
             file.close();
-            FileWriter fileWrite = new FileWriter(new File("scores.txt"), false);
+            fileWrite = new FileWriter(new File("scores.txt"), false);
             Collections.sort(stats);
             lines = new Scanner(stats.get(0));
             least = lines.nextInt();
-        
+    
             if(stats.size() < 50 ||  score < least){
                 String name = JOptionPane.showInputDialog("Enter your name:");
                 stats.add(String.format("%09", score) + " " + name);
@@ -50,9 +56,8 @@ public class GameOver extends Screen
                     fileWrite.write(s);
                 }
             }
-        }catch(Exception e){
-            least = score + 1;
-        }
+        
+        }catch(Exception e){}
     }
     
     void checkClick(MouseInfo mouse) {
