@@ -85,15 +85,19 @@ public class Game extends GameWorld
             // this is sort of lame and janky
             if (projectiles.size() % 4 == 0) {
                addObject(projectile, random.nextInt(600), 0);
+               projectile.turnTowards(random.nextInt(600), random.nextInt(600));
             }
             else if (projectiles.size() % 3 == 0) {
                addObject(projectile, 0, random.nextInt(600));
+               projectile.turnTowards(random.nextInt(600), random.nextInt(600));
             }
             else if (projectiles.size() % 2 == 0) {
                addObject(projectile, 600, random.nextInt(600));
+               projectile.turnTowards(random.nextInt(600), random.nextInt(600));
             }
             else {
                addObject(projectile, random.nextInt(600), 600);
+               projectile.turnTowards(random.nextInt(600), random.nextInt(600));
             }
             
             projectiles.add(projectile);
