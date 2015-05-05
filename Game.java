@@ -20,6 +20,7 @@ public class Game extends GameWorld
 	private ArrayList<Banana> bananas; // Array of the Bananas on the map at that current time
 	private ArrayList<Projectile> projectiles; // Array of the Projectiles on the map at that current time
 	private Simia simia; // Simia!
+	private ScoreDisplay scoreDisplay; // Current score of the game
 	private static boolean gameOver; // True if game ends by death or user quit
 	private Random random;
 	private int playTime;
@@ -37,14 +38,13 @@ public class Game extends GameWorld
 		numLives = 3;
 		bananas = new ArrayList<Banana>();
 		projectiles = new ArrayList<Projectile>();
+		scoreDisplay = new ScoreDisplay();
+		addObject(scoreDisplay, 10, 40);
 		simia = new Simia();
 		gameOver = false;
 		random = new Random();
 		playTime = 0;
-		//elapsedTimeStart = 0; // ?
-		elapsedTimeRound = 0; // ?        
-		//lastTime = 0; // ?
-		//startTime = 0; // ?    
+		elapsedTimeRound = 0; // increments by one each frame at 60 frames per second    
 		this.difficulty = difficulty;
 
 		random.setSeed(System.currentTimeMillis());
@@ -54,31 +54,34 @@ public class Game extends GameWorld
 		// Create all necessary variables for Game Loop
 		Banana banana;
 		Projectile projectile;
+		List<Banana> bananaCollisions = new ArrayList<Banana>();
 		int x, y; // for projectile removal
 
 		addObject(simia, 300, 300);
 
 		showText("numLives == " + numLives, 300, 300);
 
-		// 1.) Banana act()'s
-		if (bananas.size() < MAX_BANANA /*&& elapsedTimeRound / 1000 > BANANA_SEC*/) {
+		// 1.) ScoreDisplay act()'s
+		scoreDisplay.act();
+
+		// 2.) Banana act()'s
+		if (bananas.size() < MAX_BANANA) {
 			banana = new Banana();
 			addObject(banana, random.nextInt(500) + SIDE_BUF, random.nextInt(500) + SIDE_BUF);
 			bananas.add(banana);
-			//lastTime = elapsedTimeRound; // maybe we can't use the same time for proj/banana
 		}
 
-		// 2.) See if we need to increase the difficulty
+		// 3.) See if we need to increase the difficulty
 		if (elapsedTimeRound >= LEVEL_UP_SEC) {
-			// increase difficulty
-			++difficulty;
+			if (difficulty < 4)
+				++difficulty;
 			elapsedTimeRound = 0;
 		}
 		else
 			++elapsedTimeRound;
 
-		// 3.) Projectile act()'s
-		if (projectiles.size() < MAX_PROJ/* && elapsedTimeRound / 1000.0 > PROJ_SEC*/) {
+		// 4.) Projectile act()'s
+		if (projectiles.size() < MAX_PROJ) {
 			projectile = new Projectile();
 
 			projectile.setDifficulty(difficulty);
@@ -113,32 +116,36 @@ public class Game extends GameWorld
 			}
 		}
 
-		// 4.) Increments time of play - figure out how to do this correctly
+		// 5.) Increments time of play - figure out how to do this correctly
 		// Moved inside if statement to check time above^^
 
 		// somehow print playTime probably;
 
-		// 5.) Toucan act()'s
+		// 6.) Toucan act()'s
 		// implement once toucans exist
 
-		// 6.) If Simia gets hit, then decrease numLives
+		// 7.) If Simia gets hit, then decrease numLives
 
-		//simia.checkCollisions(this);
+		bananaCollisions = simia.checkBananaCollisions();
+		projectile = simia.checkProjectileCollisions();
+
+		if (projectile != null) {
+			projectiles.remove(projectile);
+			--numLives;
+		}
+		else {
+			for (int i = 0; i < bananaCollisions.size(); i++) {
+				bananas.remove(bananaCollisions.get(i));
+				++bananasCollected;
+				score += difficulty;
+				showText("Score == " + bananasCollected, 10, 10);
+			}
+		}
+
 		if (numLives == 0) {
 			Greenfoot.setWorld(new GameOver(score)); 
 		}
 	}
 
-	public void collectedBanana(List<Banana> collisions) {
-		for (int i = 0; i < collisions.size(); i++) {
-			bananas.remove(collisions.get(i));
-			bananasCollected++;
-			score += difficulty;
-		}
-	}
-
-	public void hitByProjectile(Projectile projectile) {
-		projectiles.remove(projectile);
-		--numLives;
-	}   
+	// Moved Megan's collision functions above to if/else block right under step 7  
 }
