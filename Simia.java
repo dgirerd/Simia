@@ -17,6 +17,8 @@ public class Simia extends Actor
             if(!faceRight) {
                 getImage().mirrorHorizontally();
                 faceRight = true;
+                // could also do"
+                //	faceRight = !faceRight;
             }
         }
         if (Greenfoot.isKeyDown("left") && this.xPos - ms - halfWidth >= Game.areaXmin) {
@@ -24,6 +26,8 @@ public class Simia extends Actor
             if(faceRight) {
                 getImage().mirrorHorizontally();
                 faceRight = false;
+                // could also do"
+                //	faceRight = !faceRight;
             }
         }
         if (Greenfoot.isKeyDown("down") && this.yPos + ms + halfHeight <= Game.areaYmax) {
@@ -32,26 +36,25 @@ public class Simia extends Actor
         if (Greenfoot.isKeyDown("up") && this.yPos - ms - halfHeight >= Game.areaYmin) {
             this.yPos -= ms;
         }
-        checkCollisions();
         setLocation(this.xPos, this.yPos);
     }
     
     public void checkCollisions() {
-        List<Actor> arr = new ArrayList<Actor>();
-        List<Projectile> projectiles = new ArrayList<Projectile>();
-        List<Banana> bananas = new ArrayList<Banana>();
-        Banana b = new Banana();
-        //Game g = new Game();
-        
-        arr = getIntersectingObjects(null);
-        for (Actor a : arr) {
-            if (b.getClass().equals(a.getClass()))
-                bananas.add((Banana)a);
-            else
-                projectiles.add((Projectile)a);
-        }
-        
-        //g.collectedBanana(bananas);
-        //g.hitByProjectile(projectiles);
-    }
+		List<Actor> arr = new ArrayList<Actor>();
+		List<Banana> bananas = new ArrayList<Banana>();
+		Projectile projectile = new Projectile();
+		Game g = new Game(1);
+		Banana b = new Banana();
+
+		arr = getIntersectingObjects(null);
+		for (Actor a : arr) {
+			if (b.getClass().equals(a.getClass()))
+				bananas.add((Banana)a);
+			else
+				projectile = (Projectile)a;
+		}
+
+		g.collectedBanana(bananas);
+		g.hitByProjectile(projectile);
+	}
 }
