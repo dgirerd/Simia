@@ -2,9 +2,14 @@ import greenfoot.*;
 
 public class Projectile extends Actor
 {
-
+	private int difficulty;
+	
     public void act() 
     {
-        // Add your action code here.
-    }    
+        move(difficulty);
+    }
+    
+    public void setDifficulty(int num) {
+    	difficulty = num;
+    }
 }
