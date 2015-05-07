@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon May 04 20:36:35 PDT 2015
+#Thu May 07 15:23:25 PDT 2015
 target2.name=GameOver
 target9.name=Projectile
 class.PlaySettings.superclass=Screen
@@ -292,17 +292,17 @@ target12.width=80
 dependency2.type=UsesDependency
 target4.y=10
 target4.x=70
-target12.height=50
-target8.editor.y=20
-dependency6.from=Backstory
 dependency9.type=UsesDependency
+dependency6.from=Backstory
+target8.editor.y=20
+target12.height=50
 target8.editor.x=40
 target14.editor.height=685
-target11.editor.width=1296
 class.Tutorial.superclass=Screen
+target11.editor.width=1296
 world.lastInstantiated=Menu
 dependency14.to=Simia
 target1.height=50
-target4.typeParameters=
 mainWindow.width=1800
+target4.typeParameters=
 =\=\=\=\=\=\=
