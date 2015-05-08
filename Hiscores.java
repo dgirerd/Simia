@@ -23,7 +23,7 @@ public class Hiscores extends Screen
         FileInputStream file;
         setBackground("images/Hiscores1.png");
         ArrayList<String> stats = new ArrayList<String>();
-        int y = 130;
+        int y = 150;
         try{
             file = new FileInputStream(new File("scores.txt"));
             Scanner lines = new Scanner(file);
@@ -31,15 +31,16 @@ public class Hiscores extends Screen
                 stats.add(lines.next());
             }
             Collections.sort(stats);
-            for(int i = (screen - 1) * 10; i < screen * 10; i++){
+            for(int i = (screen - 1) * 10; i < screen * 10 && i < stats.size(); i++){
                 Text text = new Text();
-                text.setImage(new GreenfootImage(stats.get(i - 1), 25, Color.BLACK, Color.WHITE));
+                text.setImage(new GreenfootImage(stats.get(i), 25, Color.BLACK, new Color(255, 255, 255, 0)));
                 addObject(text, 300, y);
-                y += 20;
+                y += 39;
             }
         }catch(Exception e){
+            System.out.println(e);
             //display empty page
-         GreenfootImage image = new GreenfootImage("No high scores", 25, Color.BLACK, Color.WHITE);
+         GreenfootImage image = new GreenfootImage("No high scores", 25, Color.BLACK, new Color(255, 255, 255, 0));
          Text text = new Text();
          text.setImage(image);
          addObject(text, 300, 300);

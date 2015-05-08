@@ -13,10 +13,11 @@ public class Game extends GameWorld
 	private static final int MAX_BANANA = 3; // Maximum number of bananas
 	private static final int BANANA_SEC = 120; // Seconds until a new banana can be spawned
 	private static final int LEVEL_UP_SEC = 3600;
+   private static final int NUM_LIVES = 3;
 
 	private int score; // Time of play
 	private int bananasCollected; // Number of bananas Simia has collected
-	private int numLives; // Number of lives Simia has left
+	private ArrayList<Life> lives;
 	private ArrayList<Banana> bananas; // Array of the Bananas on the map at that current time
 	private ArrayList<Projectile> projectiles; // Array of the Projectiles on the map at that current time
 	private Simia simia; // Simia!
@@ -35,7 +36,7 @@ public class Game extends GameWorld
 
 		score = 0;
 		bananasCollected = 0;
-		numLives = 3;
+		lives = new ArrayList<Life>();
 		bananas = new ArrayList<Banana>();
 		projectiles = new ArrayList<Projectile>();
 		scoreDisplay = new ScoreDisplay();
@@ -47,6 +48,17 @@ public class Game extends GameWorld
 		elapsedTimeRound = 0; // increments by one each frame at 60 frames per second    
 		this.difficulty = difficulty;
 
+		Life life;
+		int lifeX = 500;
+
+      for (int i = 0; i < NUM_LIVES; i++) {
+         life = new Life();
+         lives.add(life);
+         addObject(life, lifeX + i * 30, 30);
+      }
+
+      addObject(simia, 300, 300);
+
 		random.setSeed(System.currentTimeMillis());
 	}
 
@@ -56,10 +68,6 @@ public class Game extends GameWorld
 		Projectile projectile;
 		List<Banana> bananaCollisions = new ArrayList<Banana>();
 		int x, y; // for projectile removal
-
-		addObject(simia, 300, 300);
-
-		showText("numLives == " + numLives, 300, 300);
 
 		// 1.) ScoreDisplay act()'s
 		scoreDisplay.act();
@@ -131,19 +139,23 @@ public class Game extends GameWorld
 
 		if (projectile != null) {
 			projectiles.remove(projectile);
-			--numLives;
+         removeObject(projectile);
+
+			removeObject(lives.get(0));
+			lives.remove(0);
 		}
 		else {
 			for (int i = 0; i < bananaCollisions.size(); i++) {
 				bananas.remove(bananaCollisions.get(i));
+            removeObject(bananaCollisions.get(i));
 				++bananasCollected;
 				score += difficulty;
-				showText("Score == " + bananasCollected, 10, 10);
+				showText("" + bananasCollected, 30, 30);
 			}
 		}
 
-		if (numLives == 0) {
-			Greenfoot.setWorld(new GameOver(score)); 
+		if (lives.size() == 0) {
+			Greenfoot.setWorld(new GameOver(score, difficulty, playTime)); 
 		}
 	}
 
