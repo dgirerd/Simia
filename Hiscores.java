@@ -48,7 +48,10 @@ public class Hiscores extends Screen
     }
     
     void checkClick(MouseInfo mouse) {
-        if (mouse.getY() >= 525 && mouse.getY() <= 560) {
+        if(mouse.getX() >= 207 && mouse.getX() <= 392 && mouse.getY() >= 513 && mouse.getY() <= 572) {
+                Greenfoot.setWorld(new Menu());
+        }
+        /*if (mouse.getY() >= 525 && mouse.getY() <= 560) {
             if (mouse.getX() >= 35 && mouse.getX() <= 235) {
                 Greenfoot.setWorld(new Menu());
             }
@@ -57,7 +60,7 @@ public class Hiscores extends Screen
                     setBackground("images/Hiscores.png");
                 }
             }
-        }
+        }*/
     }
     
     private class Text extends Actor{}

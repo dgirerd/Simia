@@ -20,7 +20,7 @@ public class GameOver extends Screen
         super();
         ArrayList<String> stats = new ArrayList<String>();
         //music.stop();
-        setBackground("images/endScreen.png");
+        setBackground("images/GameOver.png");
         FileInputStream file;
         FileWriter fileWrite;
         int least;
@@ -61,10 +61,13 @@ public class GameOver extends Screen
     }
     
     void checkClick(MouseInfo mouse) {
-        if (mouse.getX() >= 340 && mouse.getX() <= 560) {
+        if(mouse.getX() >= 207 && mouse.getX() <= 392 && mouse.getY() >= 513 && mouse.getY() <= 572) {
+                Greenfoot.setWorld(new Menu());
+            }
+        /*if (mouse.getX() >= 340 && mouse.getX() <= 560) {
             if (mouse.getY() >= 550 && mouse.getY() <= 585) {
                 Greenfoot.setWorld(new Hiscores()); //add option to return to menu, try again
             }
-        }
+        }*/
     }
 }
