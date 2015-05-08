@@ -155,7 +155,7 @@ public class Game extends GameWorld
 		}
 
 		if (lives.size() == 0) {
-			Greenfoot.setWorld(new GameOver(score)); 
+			Greenfoot.setWorld(new GameOver(score, difficulty, playTime)); 
 		}
 	}
 

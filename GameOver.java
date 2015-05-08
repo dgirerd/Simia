@@ -15,7 +15,7 @@ public class GameOver extends Screen
      * Constructor for objects of class GameOver.
      * 
      */
-    public GameOver(int score)
+    public GameOver(int score, int difficulty, int playTime)
     {
         super();
         ArrayList<String> stats = new ArrayList<String>();
