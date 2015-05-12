@@ -21,7 +21,6 @@ public class Game extends GameWorld
 	private ArrayList<Banana> bananas; // Array of the Bananas on the map at that current time
 	private ArrayList<Projectile> projectiles; // Array of the Projectiles on the map at that current time
 	private Simia simia; // Simia!
-	private ScoreDisplay scoreDisplay; // Current score of the game
 	private static boolean gameOver; // True if game ends by death or user quit
 	private Random random;
 	private int playTime;
@@ -39,8 +38,6 @@ public class Game extends GameWorld
 		lives = new ArrayList<Life>();
 		bananas = new ArrayList<Banana>();
 		projectiles = new ArrayList<Projectile>();
-		scoreDisplay = new ScoreDisplay();
-		addObject(scoreDisplay, 10, 40);
 		simia = new Simia();
 		gameOver = false;
 		random = new Random();
@@ -68,9 +65,6 @@ public class Game extends GameWorld
 		Projectile projectile;
 		List<Banana> bananaCollisions = new ArrayList<Banana>();
 		int x, y; // for projectile removal
-
-		// 1.) ScoreDisplay act()'s
-		scoreDisplay.act();
 
 		// 2.) Banana act()'s
 		if (bananas.size() < MAX_BANANA) {
@@ -150,7 +144,7 @@ public class Game extends GameWorld
             removeObject(bananaCollisions.get(i));
 				++bananasCollected;
 				score += difficulty;
-				showText("" + bananasCollected, 30, 30);
+				showText("Score: " + bananasCollected, 65, 30);
 			}
 		}
 
