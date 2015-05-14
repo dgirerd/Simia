@@ -13,7 +13,7 @@ public class Game extends GameWorld
 	private static final int MAX_BANANA = 3; // Maximum number of bananas
 	private static final int BANANA_SEC = 120; // Seconds until a new banana can be spawned
 	private static final int LEVEL_UP_SEC = 3600;
-   private static final int NUM_LIVES = 3;
+	private static final int NUM_LIVES = 3;
 
 	private int score; // Time of play
 	private int bananasCollected; // Number of bananas Simia has collected
@@ -32,7 +32,6 @@ public class Game extends GameWorld
 		super.act();
 		setBackground("images/JungleBackground.png");
 
-
 		score = 0;
 		bananasCollected = 0;
 		lives = new ArrayList<Life>();
@@ -48,13 +47,13 @@ public class Game extends GameWorld
 		Life life;
 		int lifeX = 500;
 
-      for (int i = 0; i < NUM_LIVES; i++) {
-         life = new Life();
-         lives.add(life);
-         addObject(life, lifeX + i * 30, 30);
-      }
+		for (int i = 0; i < NUM_LIVES; i++) {
+			life = new Life();
+			lives.add(life);
+			addObject(life, lifeX + i * 30, 30);
+		}
 
-      addObject(simia, 300, 300);
+		addObject(simia, 300, 300);
 
 		random.setSeed(System.currentTimeMillis());
 	}
@@ -133,7 +132,7 @@ public class Game extends GameWorld
 
 		if (projectile != null) {
 			projectiles.remove(projectile);
-         removeObject(projectile);
+			removeObject(projectile);
 
 			removeObject(lives.get(0));
 			lives.remove(0);
@@ -141,11 +140,12 @@ public class Game extends GameWorld
 		else {
 			for (int i = 0; i < bananaCollisions.size(); i++) {
 				bananas.remove(bananaCollisions.get(i));
-            removeObject(bananaCollisions.get(i));
+				removeObject(bananaCollisions.get(i));
 				++bananasCollected;
 				score += difficulty;
-				showText("Score: " + bananasCollected, 65, 30);
+				
 			}
+			showText("Score: " + bananasCollected, 65, 30);
 		}
 
 		if (lives.size() == 0) {
