@@ -145,7 +145,7 @@ public class Game extends GameWorld
 				score += difficulty;
 				
 			}
-			showText("Score: " + bananasCollected, 65, 30);
+			showText("Score: " + score, 65, 30);
 		}
 
 		if (lives.size() == 0) {

@@ -11,16 +11,16 @@ import java.io.*;
 public class GameOver extends Screen
 {
 
-    /**
-     * Constructor for objects of class GameOver.
-     * 
-     */
+    private int difficulty;
+    
     public GameOver(int score, int difficulty, int playTime)
     {
         super();
+        this.difficulty = difficulty;
         ArrayList<String> stats = new ArrayList<String>();
         //music.stop();
         setBackground("images/GameOver.png");
+        showText("Score: " + score, 300, 167);
         FileInputStream file;
         FileWriter fileWrite;
         int least = 0;
@@ -54,7 +54,7 @@ public class GameOver extends Screen
             }*/
     
             if(stats.size() < 50 ||  score > least){
-                String name = JOptionPane.showInputDialog("Enter your name:");
+                String name = JOptionPane.showInputDialog("Game Over! Enter your name:");
                 stats.add(score + " " + name);
                 System.out.println(stats.size());
                 if(stats.size() == 50)
@@ -73,13 +73,22 @@ public class GameOver extends Screen
     }
     
     void checkClick(MouseInfo mouse) {
-        if(mouse.getX() >= 207 && mouse.getX() <= 392 && mouse.getY() >= 513 && mouse.getY() <= 572) {
+        if(mouse.getX() >= 205 && mouse.getX() <= 395) {
+            if (mouse.getY() >= 215 && mouse.getY() <= 275) {
+                //music.playLoop();
+                Greenfoot.setWorld(new Game(difficulty)); 
+            }
+            else if (mouse.getY() >= 295 && mouse.getY() <= 355) {
+                //music.playLoop();
+                Greenfoot.setWorld(new Hiscores());
+            }
+            else if (mouse.getY() >= 370 && mouse.getY() <= 430) {
+                //music.playLoop();
+                Greenfoot.setWorld(new Credits()); 
+            }
+        }
+            if (mouse.getX() >= 380 && mouse.getX() <= 565 && mouse.getY() >= 513 && mouse.getY() <= 572) {
                 Greenfoot.setWorld(new Menu());
-            }
-        /*if (mouse.getX() >= 340 && mouse.getX() <= 560) {
-            if (mouse.getY() >= 550 && mouse.getY() <= 585) {
-                Greenfoot.setWorld(new Hiscores()); //add option to return to menu, try again
-            }
-        }*/
+        }
     }
 }
