@@ -12,7 +12,7 @@ public class Simia extends Actor
 	{
 		int halfWidth = getImage().getWidth()/2;
 		int halfHeight = getImage().getHeight()/2;
-		if (Greenfoot.isKeyDown("right") && this.xPos + ms + halfWidth <= Game.areaXmax) {
+		if ((Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d"))&& this.xPos + ms + halfWidth <= Game.areaXmax) {
 			this.xPos += ms;
 			if(!faceRight) {
 				getImage().mirrorHorizontally();
@@ -21,7 +21,7 @@ public class Simia extends Actor
 				//	faceRight = !faceRight;
 			}
 		}
-		if (Greenfoot.isKeyDown("left") && this.xPos - ms - halfWidth >= Game.areaXmin) {
+		if ((Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) && this.xPos - ms - halfWidth >= Game.areaXmin) {
 			this.xPos -= ms;
 			if(faceRight) {
 				getImage().mirrorHorizontally();
@@ -30,10 +30,10 @@ public class Simia extends Actor
 				//	faceRight = !faceRight;
 			}
 		}
-		if (Greenfoot.isKeyDown("down") && this.yPos + ms + halfHeight <= Game.areaYmax) {
+		if ((Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s")) && this.yPos + ms + halfHeight <= Game.areaYmax) {
 			this.yPos += ms;
 		}
-		if (Greenfoot.isKeyDown("up") && this.yPos - ms - halfHeight >= Game.areaYmin) {
+		if ((Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w")) && this.yPos - ms - halfHeight >= Game.areaYmin) {
 			this.yPos -= ms;
 		}
 		setLocation(this.xPos, this.yPos);

@@ -3,65 +3,42 @@ import java.util.*;
 import java.io.*;
 import java.awt.Color;
 
-/**
- * Write a description of class Hiscores here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Hiscores extends Screen
 {
-    int screen = 1;
-    private int numScreens = 5;
-    /**
-     * Constructor for objects of class Hiscores.
-     * 
-     */
     public Hiscores()
     {
         super();
         FileInputStream file;
-        setBackground("images/Hiscores1.png");
+        setBackground("images/Hiscores.png");
         ArrayList<String> stats = new ArrayList<String>();
         int y = 150;
         try{
             file = new FileInputStream(new File("scores.txt"));
             Scanner lines = new Scanner(file);
             while(lines.hasNext()){
-                stats.add(lines.next());
+                stats.add(lines.nextLine());
             }
             Collections.sort(stats);
-            for(int i = (screen - 1) * 10; i < screen * 10 && i < stats.size(); i++){
+            for(int i = 0; i < 10 && i < stats.size(); i++){
                 Text text = new Text();
-                text.setImage(new GreenfootImage(stats.get(i), 25, Color.BLACK, new Color(255, 255, 255, 0)));
+                text.setImage(new GreenfootImage(i + " " + stats.get(i), 25, Color.BLACK, new Color(255, 255, 255, 0)));
                 addObject(text, 300, y);
                 y += 39;
             }
         }catch(Exception e){
             System.out.println(e);
             //display empty page
-         GreenfootImage image = new GreenfootImage("No high scores", 25, Color.BLACK, new Color(255, 255, 255, 0));
+         GreenfootImage image = new GreenfootImage("No high scores", 50, Color.BLACK, new Color(255, 255, 255, 0));
          Text text = new Text();
          text.setImage(image);
          addObject(text, 300, 300);
         }        
-        
     }
     
     void checkClick(MouseInfo mouse) {
         if(mouse.getX() >= 207 && mouse.getX() <= 392 && mouse.getY() >= 513 && mouse.getY() <= 572) {
                 Greenfoot.setWorld(new Menu());
         }
-        /*if (mouse.getY() >= 525 && mouse.getY() <= 560) {
-            if (mouse.getX() >= 35 && mouse.getX() <= 235) {
-                Greenfoot.setWorld(new Menu());
-            }
-            else if (mouse.getX() >= 400 && mouse.getX() <= 530) {
-                if (screen < numScreens) {
-                    setBackground("images/Hiscores.png");
-                }
-            }
-        }*/
     }
     
     private class Text extends Actor{}

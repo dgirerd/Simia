@@ -53,11 +53,11 @@ public class GameOver extends Screen
                 least = lines.nextInt();
             }*/
     
-            if(stats.size() < 50 ||  score > least){
+            if(stats.size() < 10 ||  score > least){
                 String name = JOptionPane.showInputDialog("Game Over! Enter your name:");
-                stats.add(score + " " + name);
+                stats.add(score + " " + name  + " " + playTime + " " + difficulty);
                 System.out.println(stats.size());
-                if(stats.size() == 50)
+                if(stats.size() == 10)
                     stats.remove(0);
                 for(String s : stats){
                     System.out.println(s);
