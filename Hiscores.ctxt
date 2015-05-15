@@ -1,7 +1,6 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Hiscores()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Hiscores.\r\n\ \r\n
 comment1.params=mouse
 comment1.target=void\ checkClick(greenfoot.MouseInfo)
 numComments=2
