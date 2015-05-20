@@ -19,10 +19,43 @@ public class Hiscores extends Screen
                 stats.add(lines.nextLine());
             }
             Collections.sort(stats);
-            for(int i = 0; i < 10 && i < stats.size(); i++){
-                Text text = new Text();
-                text.setImage(new GreenfootImage(i + " " + stats.get(i), 25, Color.BLACK, new Color(255, 255, 255, 0)));
-                addObject(text, 300, y);
+            System.out.println("check 1");
+            for(int i = 1; i <= 10 && (i - 1) < stats.size(); i++){
+                Text rank = new Text();
+                Text points = new Text();
+                Text name = new Text();
+                Text time = new Text();
+                Text diff = new Text();
+                rank.setImage(new GreenfootImage("" + i, 25, Color.BLACK, new Color(255, 255, 255, 0)));
+                System.out.println("check 2");
+                Scanner parse = new Scanner(stats.get(i - 1));
+                System.out.println("current scan " + stats.get(i-1));
+                String r = parse.next();
+                System.out.println("check 3 " + r);
+                points.setImage(new GreenfootImage(r, 25, Color.BLACK, new Color(255, 255, 255, 0)));
+                String n = parse.next();
+                System.out.println("check 4 " + n);
+                name.setImage(new GreenfootImage(n, 25, Color.BLACK, new Color(255,255,255,0)));
+                String t = parse.next();
+                System.out.println("check 5 " + t);
+                time.setImage(new GreenfootImage(t, 25, Color.BLACK, new Color(255,255,255,0)));
+                System.out.println("check 6");
+                switch(parse.nextInt()){
+                    case 1:
+                        diff.setImage(new GreenfootImage("Easy", 25, Color.BLACK, new Color(255,255,255,0)));
+                        break;
+                    case 2:
+                        diff.setImage(new GreenfootImage("Medium", 25, Color.BLACK, new Color(255,255,255,0)));
+                        break;
+                    case 3:
+                        diff.setImage(new GreenfootImage("Hard", 25, Color.BLACK, new Color(255,255,255,0)));
+                        break;
+                    }
+                addObject(rank, 58, y);
+                addObject(points, 135, y);
+                addObject(name, 272, y);
+                addObject(time, 423, y);
+                addObject(diff, 518, y);
                 y += 39;
             }
         }catch(Exception e){

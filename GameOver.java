@@ -41,7 +41,7 @@ public class GameOver extends Screen
         }
         Scanner lines = new Scanner(file);
         while(lines.hasNext()){
-            stats.add(lines.next());
+            stats.add(lines.nextLine());
         }
         try{
             file.close();
@@ -55,13 +55,14 @@ public class GameOver extends Screen
     
             if(stats.size() < 10 ||  score > least){
                 String name = JOptionPane.showInputDialog("Game Over! Enter your name:");
-                stats.add(score + " " + name  + " " + playTime + " " + difficulty);
+                String s = score + " " + name  + " " + playTime + " " + difficulty;
+                stats.add(s);
                 System.out.println(stats.size());
                 if(stats.size() == 10)
                     stats.remove(0);
-                for(String s : stats){
-                    System.out.println(s);
-                    fileWrite.write(s + "\n");
+                for(String x : stats){
+                    System.out.println(x);
+                    fileWrite.write(x + "\n");
                 }
             }
             
