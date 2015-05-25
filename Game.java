@@ -23,7 +23,7 @@ public class Game extends GameWorld
     private Simia simia; // Simia!
     private static boolean gameOver; // True if game ends by death or user quit
     private Random random;
-    private int playTime;
+    private double playTime;
     private int elapsedTimeRound;
     private int difficulty;
 
@@ -161,7 +161,7 @@ public class Game extends GameWorld
         }
         showText("Time: " + playTime/100, 165, 30);
         if (lives.size() == 0) {
-            Greenfoot.setWorld(new GameOver(score, difficulty, playTime/100)); 
+            Greenfoot.setWorld(new GameOver(score, difficulty, playTime/100.00)); 
         }
     }
 

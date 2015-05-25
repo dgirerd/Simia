@@ -19,6 +19,10 @@ public class Hiscores extends Screen
                 stats.add(lines.nextLine());
             }
             Collections.sort(stats);
+            Collections.reverse(stats);
+            for(String s: stats){
+                System.out.println(s);
+            }
             System.out.println("check 1");
             for(int i = 1; i <= 10 && (i - 1) < stats.size(); i++){
                 Text rank = new Text();
@@ -30,9 +34,9 @@ public class Hiscores extends Screen
                 System.out.println("check 2");
                 Scanner parse = new Scanner(stats.get(i - 1));
                 System.out.println("current scan " + stats.get(i-1));
-                String r = parse.next();
+                int r = parse.nextInt();
                 System.out.println("check 3 " + r);
-                points.setImage(new GreenfootImage(r, 25, Color.BLACK, new Color(255, 255, 255, 0)));
+                points.setImage(new GreenfootImage("" + r, 25, Color.BLACK, new Color(255, 255, 255, 0)));
                 String n = parse.next();
                 System.out.println("check 4 " + n);
                 name.setImage(new GreenfootImage(n, 25, Color.BLACK, new Color(255,255,255,0)));

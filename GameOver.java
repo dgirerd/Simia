@@ -13,7 +13,7 @@ public class GameOver extends Screen
 
     private int difficulty;
     
-    public GameOver(int score, int difficulty, int playTime)
+    public GameOver(int score, int difficulty, double playTime)
     {
         super();
         this.difficulty = difficulty;
@@ -55,7 +55,10 @@ public class GameOver extends Screen
     
             if(stats.size() < 10 ||  score > least){
                 String name = JOptionPane.showInputDialog("Game Over! Enter your name:");
-                String s = score + " " + name  + " " + playTime + " " + difficulty;
+                if(name == null){
+                    name = "Player1";
+                }
+                String s = String.format("%05d", score) + " " + name  + " " + playTime + " " + difficulty;
                 stats.add(s);
                 System.out.println(stats.size());
                 if(stats.size() == 10)
