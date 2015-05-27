@@ -12,7 +12,7 @@ public class GameOver extends Screen
 {
 
     private int difficulty;
-    
+
     public GameOver(int score, int difficulty, double playTime)
     {
         super();
@@ -47,35 +47,35 @@ public class GameOver extends Screen
             file.close();
             File textfile = new File("scores.txt");
             fileWrite = new FileWriter(textfile, false);
-           /* if(stats.size() > 0){
-                Collections.sort(stats);
-                lines = new Scanner(stats.get(0));
-                least = lines.nextInt();
+            /* if(stats.size() > 0){
+            Collections.sort(stats);
+            lines = new Scanner(stats.get(0));
+            least = lines.nextInt();
             }*/
-    
+
             if(stats.size() < 10 ||  score > least){
                 String name = JOptionPane.showInputDialog("Game Over! Enter your name:");
-                if(name == null){
-                    name = "Player1";
+                if(name != null && !name.trim().equals("")){
+                    String s = String.format("%05d", score) + " " + name  + " " + playTime + " " + difficulty;
+                    stats.add(s);
+                    System.out.println(stats.size());
+                    if(stats.size() == 10)
+                        stats.remove(0);
                 }
-                String s = String.format("%05d", score) + " " + name  + " " + playTime + " " + difficulty;
-                stats.add(s);
-                System.out.println(stats.size());
-                if(stats.size() == 10)
-                    stats.remove(0);
+
                 for(String x : stats){
                     System.out.println(x);
                     fileWrite.write(x + "\n");
                 }
             }
-            
+
             fileWrite.close();
-        
+
         }catch(Exception e){
             System.out.println("3 " +e);
         }
     }
-    
+
     void checkClick(MouseInfo mouse) {
         if(mouse.getX() >= 205 && mouse.getX() <= 395) {
             if (mouse.getY() >= 215 && mouse.getY() <= 275) {
@@ -91,8 +91,8 @@ public class GameOver extends Screen
                 Greenfoot.setWorld(new Credits()); 
             }
         }
-            if (mouse.getX() >= 380 && mouse.getX() <= 565 && mouse.getY() >= 513 && mouse.getY() <= 572) {
-                Greenfoot.setWorld(new Menu());
+        if (mouse.getX() >= 380 && mouse.getX() <= 565 && mouse.getY() >= 513 && mouse.getY() <= 572) {
+            Greenfoot.setWorld(new Menu());
         }
     }
 }

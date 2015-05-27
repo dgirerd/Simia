@@ -159,7 +159,7 @@ public class Game extends GameWorld
             
             
         }
-        showText("Time: " + playTime/100, 165, 30);
+        showText("Time: " + playTime/100, 175, 30);
         if (lives.size() == 0) {
             Greenfoot.setWorld(new GameOver(score, difficulty, playTime/100.00)); 
         }

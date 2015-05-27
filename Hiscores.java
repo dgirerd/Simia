@@ -55,11 +55,11 @@ public class Hiscores extends Screen
                         diff.setImage(new GreenfootImage("Hard", 25, Color.BLACK, new Color(255,255,255,0)));
                         break;
                     }
-                addObject(rank, 58, y);
-                addObject(points, 135, y);
-                addObject(name, 272, y);
-                addObject(time, 423, y);
-                addObject(diff, 518, y);
+                addObject(rank, 59, y);
+                addObject(points, 147, y);
+                addObject(name, 288, y);
+                addObject(time, 422, y);
+                addObject(diff, 521, y);
                 y += 39;
             }
         }catch(Exception e){

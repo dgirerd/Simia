@@ -8,7 +8,7 @@ public class Tutorial extends Screen
     public Tutorial()
     {
         super();
-        setBackground("images/Tutorial1.png"); 
+        setBackground("images/Tutorial.png"); 
     }
     
     void checkClick(MouseInfo mouse) { 
