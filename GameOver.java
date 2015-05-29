@@ -47,28 +47,31 @@ public class GameOver extends Screen
             file.close();
             File textfile = new File("scores.txt");
             fileWrite = new FileWriter(textfile, false);
-            /* if(stats.size() > 0){
-            Collections.sort(stats);
-            lines = new Scanner(stats.get(0));
-            least = lines.nextInt();
-            }*/
+            System.out.println("size " + stats.size());
+            if(stats.size() > 0){
+                Collections.sort(stats);
+                lines = new Scanner(stats.get(0));
+                lines.useDelimiter((char)1 + "");
+                System.out.println("hi " + stats.get(0));
+                least = lines.nextInt();
+                System.out.println("least = " + least);
+            }
 
-            if(stats.size() < 10 ||  score > least){
+            if(stats.size() < 11 ||  score > least){
                 String name = JOptionPane.showInputDialog("Game Over! Enter your name:");
                 if(name != null && !name.trim().equals("")){
-                    String s = String.format("%05d", score) + " " + name  + " " + playTime + " " + difficulty;
+                    String s = String.format("%05d", score) + (char)1 + name  + (char)1 + playTime + (char)1 + difficulty;
                     stats.add(s);
                     System.out.println(stats.size());
-                    if(stats.size() == 10)
+                    if(stats.size() == 11)
                         stats.remove(0);
                 }
 
-                for(String x : stats){
-                    System.out.println(x);
-                    fileWrite.write(x + "\n");
-                }
             }
-
+            for(String x : stats){
+                System.out.println(x);
+                fileWrite.write(x + "\n");
+            }
             fileWrite.close();
 
         }catch(Exception e){

@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue May 26 15:06:07 PDT 2015
+#Thu May 28 15:46:54 PDT 2015
 target2.name=GameOver
 target9.name=Projectile
 class.PlaySettings.superclass=Screen
@@ -247,7 +247,7 @@ target15.editor.width=720
 dependency7.from=Menu
 target6.width=80
 target6.editor.y=0
-mainWindow.height=876
+mainWindow.height=1056
 target9.naviview.expanded=true
 target6.editor.x=0
 target14.showInterface=false
@@ -260,8 +260,8 @@ target3.name=Hiscores
 target13.y=10
 target7.height=50
 target13.x=160
-target2.editor.y=0
-target2.editor.x=0
+target2.editor.y=37
+target2.editor.x=160
 target7.editor.height=685
 dependency7.to=Backstory
 dependency12.type=UsesDependency
@@ -305,6 +305,6 @@ target11.editor.width=1616
 world.lastInstantiated=Menu
 dependency14.to=Simia
 target1.height=50
-mainWindow.width=1616
+mainWindow.width=1936
 target4.typeParameters=
 =\=\=\=\=\=\=
