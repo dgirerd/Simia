@@ -58,7 +58,12 @@ public class GameOver extends Screen
             }
 
             if(stats.size() < 11 ||  score > least){
-                String name = JOptionPane.showInputDialog("Game Over! Enter your name:");
+                ImageIcon icon = new ImageIcon("images/input_icon.png");
+                Object options[] = {"hi", "ho"};
+                Object initial = "";
+                Object prompt = "New High Score! Enter your name:";
+                String title = "Game Over";
+                String name = (String)JOptionPane.showInputDialog(null, prompt, title, JOptionPane.PLAIN_MESSAGE, icon, null, "");
                 if(name != null && !name.trim().equals("")){
                     String s = String.format("%05d", score) + (char)1 + name  + (char)1 + playTime + (char)1 + difficulty;
                     stats.add(s);
