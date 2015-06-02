@@ -29,13 +29,11 @@ public class GameOver extends Screen
         try{
             file = new FileInputStream(new File("scores.txt"));
         }catch(FileNotFoundException e){
-            System.out.println("1 " + e);
             File scores = new File("scores.txt");//only needs to create file if file doesn't exist
             try{
                 scores.createNewFile();
                 file = new FileInputStream(new File("scores.txt"));
             }catch(Exception x){
-                System.out.println("2" + x);
                 return;
             }
         }
@@ -47,14 +45,11 @@ public class GameOver extends Screen
             file.close();
             File textfile = new File("scores.txt");
             fileWrite = new FileWriter(textfile, false);
-            System.out.println("size " + stats.size());
             if(stats.size() > 0){
                 Collections.sort(stats);
                 lines = new Scanner(stats.get(0));
                 lines.useDelimiter((char)1 + "");
-                System.out.println("hi " + stats.get(0));
                 least = lines.nextInt();
-                System.out.println("least = " + least);
             }
 
             if(stats.size() < 11 ||  score > least){
@@ -67,14 +62,12 @@ public class GameOver extends Screen
                 if(name != null && !name.trim().equals("")){
                     String s = String.format("%05d", score) + (char)1 + name  + (char)1 + playTime + (char)1 + difficulty;
                     stats.add(s);
-                    System.out.println(stats.size());
                     if(stats.size() == 11)
                         stats.remove(0);
                 }
 
             }
             for(String x : stats){
-                System.out.println(x);
                 fileWrite.write(x + "\n");
             }
             fileWrite.close();
