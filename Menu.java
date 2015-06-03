@@ -3,11 +3,20 @@ import java.awt.Color;
 
 public class Menu extends Screen
 {
-    GreenfootSound background0, background1, background2, background3, background4, background5;
     
     public Menu()
     {
         super();
+        Screen.gameSound0.stop();
+        Screen.gameSound1.stop();
+        Screen.gameSound2.stop();
+        Screen.gameSound3.stop();
+        Screen.gameSound4.stop();
+        Screen.gameSound5.stop();
+        Screen.gameSound6.stop();
+        Screen.gameSound7.stop();
+        Screen.gameSound9.stop();
+        Screen.gameSound10.stop();
         Screen.menuSound0.playLoop();
         Screen.menuSound1.playLoop();
         Screen.menuSound2.playLoop();
