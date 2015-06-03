@@ -3,11 +3,19 @@ import java.awt.Color;
 
 public class Menu extends Screen
 {
-
+    GreenfootSound background0, background1, background2, background3, background4, background5;
+    
     public Menu()
     {
         super();
-        setBackground("images/Menu.png"); 
+        Screen.menuSound0.playLoop();
+        Screen.menuSound1.playLoop();
+        Screen.menuSound2.playLoop();
+        Screen.menuSound3.playLoop();
+        Screen.menuSound4.playLoop();
+        Screen.menuSound5.playLoop();
+        
+        setBackground("images/Menu.png");
         
         
     }
