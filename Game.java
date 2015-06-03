@@ -23,7 +23,7 @@ public class Game extends GameWorld
     private Simia simia; // Simia!
     private static boolean gameOver; // True if game ends by death or user quit
     private Random random;
-    private int playTime;
+    private double playTime;
     private int elapsedTimeRound;
     private int difficulty;
 
@@ -66,6 +66,7 @@ public class Game extends GameWorld
         int x, y; // for projectile removal
 
         // 2.) Banana act()'s
+        playTime++;
         if (elapsedTimeRound > 30) {
             if (bananas.size() < MAX_BANANA) {
                 banana = new Banana();
@@ -146,14 +147,21 @@ public class Game extends GameWorld
                 bananas.remove(bananaCollisions.get(i));
                 removeObject(bananaCollisions.get(i));
                 ++bananasCollected;
-                score += difficulty;
-
+                if(difficulty == 1) {
+                    score++;
+                } else if(difficulty == 2) {
+                    score+=3;
+                } else if(difficulty == 3) {
+                    score+=10;
+                }
             }
             showText("Score: " + score, 65, 30);
+            
+            
         }
-
+        showText("Time: " + playTime/100, 175, 30);
         if (lives.size() == 0) {
-            Greenfoot.setWorld(new GameOver(score, difficulty, playTime)); 
+            Greenfoot.setWorld(new GameOver(score, difficulty, playTime/100.00)); 
         }
     }
 
