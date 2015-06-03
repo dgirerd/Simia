@@ -26,6 +26,8 @@ public class Game extends GameWorld
     private double playTime;
     private int elapsedTimeRound;
     private int difficulty;
+    GreenfootSound background0, background1, background2, background3, background4, background5, background6, background7, background8, background9, background10;
+    
 
     public Game(int difficulty)
     {
