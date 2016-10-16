@@ -1,12 +1,6 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
+Simia
+A Java game
+Developed by Daniel Girerd, Jesenia Garcia-, Megan Elrod, Evan Hench
+For Software Engineering class at Cal Poly SLO
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+Use the arrow keys to move around, and the mouse to shoot.
